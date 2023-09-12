@@ -8,29 +8,58 @@ import { AiFillGithub } from "react-icons/ai";
 import { BiLogoLinkedin, BiSolidBusiness } from "react-icons/bi";
 import { ImMail4, ImSpinner9 } from "react-icons/im";
 
-// export default interface User {
-//     avatar_url: typeof Image
-//     name: string
-// }
-
 const rhodium = Rhodium_Libre({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-rhodium",
 });
 
 export default function Home() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<{ name: string; avatar_url: string }>({
+    name: "",
+    avatar_url: "",
+  });
   const [loading, setLoading] = useState(true);
 
+  //   api
+  //     .get(`/users/matthns`)
+  //     .then((response) => setUser(response.data))
+  //     .catch((err) => {
+  //       console.error("API GET error" + err);
+  //     });
+  //   setLoading(false);
+  // }, []);
+
+  // useEffect(() => {
+  //   async function loadProfile() {
+  //     const [response] = await Promise.all([api.get(`/users/matthns`)]);
+  //     setUser(response.data);
+  //   }
+  //   loadProfile();
+  //   setLoading(false);
+  // }, []);
+
+  // useEffect(() => {
+  //   async function loadProfile() {
+  //     const [profileData] = await Promise.all([api.get(`/users/matthns`)]);
+  //     setUser(profileData.data);
+  //   }
+  //   loadProfile();
+  //   setLoading(false);
+  // }, []);
+
   useEffect(() => {
-    api
-      .get(`/users/matthns`)
-      .then((response) => setUser(response.data))
-      .catch((err) => {
-        console.error("API GET error" + err);
-      });
-    setLoading(false);
+    async function loadProfile() {
+      try {
+        const profileData = await api.get(`/users/matthns`);
+        setUser(profileData.data);
+      } catch (err) {
+        console.error("Oops, have error on API GET", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProfile();
   }, []);
 
   if (loading) {
@@ -46,14 +75,17 @@ export default function Home() {
   return (
     <div className="bg-[#000413] w-screen h-screen p-10 text-white">
       <div className="flex flex-col items-center mt-4 p-4">
-        <h2 className={`${rhodium.className} text-center text-3xl mb-6`}>
-          matheus nascimento
+        <h2
+          className={`${rhodium.className} text-center text-3xl mb-6 hover:underline cursor-pointer`}
+        >
+          {user?.name.toLowerCase()}
         </h2>
-        <img
-          className="rounded-full mb-8 border-2 border-blue-300"
+        <Image
+          className={`rounded-full mb-8 border-4 border-blue-300`}
           src={user?.avatar_url}
           alt="My profile photo"
-          width={"300"}
+          width={300}
+          height={300}
         />
         <div className="">
           <p className="font-bold text-2xl p-2">Hi! My name is {user?.name}</p>
@@ -61,7 +93,10 @@ export default function Home() {
           <p className="text-xl p-2">
             Currently I`m an associate at {""}
             <strong className="hover:bg-white hover:p-1 hover:rounded-md hover:text-black">
-              <a href="https://mmadevs.com.br"> MMA Devs</a>
+              <Link href={"https://mmadevs.com.br"} target="_blank">
+                {" "}
+                MMA Devs
+              </Link>
             </strong>
           </p>
           <ul className="list-disc ml-8 mt-4">
