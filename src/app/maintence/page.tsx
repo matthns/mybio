@@ -15,7 +15,7 @@ export default function MaintencePage() {
       <p className="m-2">Some things are under maintenance, we`ll back soon</p>
       <Link
         href={"/"}
-        className="m-2 p-2 bg-blue-300 text-black font-bold rounded-md"
+        className="m-2 p-2 bg-blue-300 text-black font-medium rounded-md hover:bg-blue-400"
       >
         Go home
       </Link>

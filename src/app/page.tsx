@@ -1,12 +1,13 @@
 "use client";
-import api from "@/services/api/api_github";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Rhodium_Libre } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai";
-import { BiLogoLinkedin, BiSolidBusiness, BiMenu, BiX } from "react-icons/bi";
-import { ImSpinner9 } from "react-icons/im";
+import { BiLogoLinkedin, BiSolidBusiness } from "react-icons/bi";
+import NavBar from "./components/NavBar";
+import { useUser } from "./components/UserContext";
+import { useLoading } from "./components/LoadingContext";
 
 const rhodium = Rhodium_Libre({
   subsets: ["latin"],
@@ -71,80 +72,28 @@ export default function Home() {
     },
   ];
 
-  const [user, setUser] = useState<{ name: string; avatar_url: string }>({
-    name: "",
-    avatar_url: "",
-  });
-  const [loading, setLoading] = useState(true);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
+  const { user } = useUser();
+  const { setLoading } = useLoading();
+
   useEffect(() => {
-    async function loadProfile() {
-      try {
-        const profileData = await api.get(`/users/matthns`);
-        setUser(profileData.data);
-      } catch (err) {
-        console.error("Oops, have error on API GET", err);
-      } finally {
-        setLoading(false);
-      }
+    if (user.name) {
+      setLoading(false);
+    } else {
+      setLoading(true);
     }
-
-    loadProfile();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="h-screen w-screen  text-white flex items-center justify-center">
-        <ImSpinner9
-          className={"w-8 h-8 mr-2 text-gray-200 animate-spin fill-white"}
-        />
-      </div>
-    );
-  }
+  }, [user]); //eslint-disable-line
 
   return (
     <div className="w-full h-full text-white flex justify-center items-center">
       <div className="w-full h-full">
-        <nav
-          className={`${rhodium.className} h-16 flex items-center justify-around bg-[#14204d]/30`}
-        >
-          <h1 className={`text-xl hover:underline cursor-pointer`}>
-            <Link href={"/"}>{user?.name.toLowerCase()}</Link>
-          </h1>
-          <div
-            className={` ${
-              isMenuOpen
-                ? "w-full h-full absolute top-0 flex flex-col  bg-blue-900 p-6 items-center justify-center"
-                : "hidden lg:block"
-            } `}
-          >
-            <ul
-              className={`flex flex-col gap-6 p-6 items-center justify-center lg:flex-row`}
-            >
-              {menu.map((menuItem) => {
-                return (
-                  <li
-                    key={menuItem.id}
-                    className="transition ease-in-out delay-150 hover:scale-110 hover:duration-300 hover:text-blue-400"
-                  >
-                    <Link href={menuItem.href}>{menuItem.label}</Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-          <button
-            onClick={toggleMenu}
-            className={`text-3xl relative text-right p-1 bg-blue-950 rounded-full lg:hidden`}
-          >
-            {isMenuOpen ? <BiX /> : <BiMenu />}
-          </button>
-        </nav>
+        <NavBar />
+
         <div className="flex pt-8 items-center justify-center h-[calc(100vh-4rem)]">
           <div className="flex flex-col gap-6 items-center p-4 lg:flex-row">
             <Image
@@ -156,7 +105,7 @@ export default function Home() {
               placeholder="blur"
               blurDataURL="/assets/img/profile.png"
             />
-            <div className="">
+            <div>
               <p className="font-bold text-2xl p-2">
                 Hi! My name is {user?.name}
               </p>

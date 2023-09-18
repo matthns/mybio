@@ -39,3 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Responsivity
 - Some pages are missing
 - Refactor and separate some components (e.g: navbar, etc.)
+- Framer-motion needs to be implemented (already installed, but not working)
