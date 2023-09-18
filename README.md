@@ -37,3 +37,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - Pages of menu
 - Responsivity
+- Some pages are missing
+- Refactor and separate some components (e.g: navbar, etc.)
