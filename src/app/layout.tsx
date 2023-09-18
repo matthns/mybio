@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Roboto, Rhodium_Libre } from "next/font/google";
+import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -19,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={`${roboto.className} bg-[#000413] text-white`}>
+        {children}
+      </body>
     </html>
   );
 }

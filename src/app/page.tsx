@@ -1,12 +1,12 @@
 "use client";
 import api from "@/services/api/api_github";
+import React, { useState, useEffect } from "react";
 import { Rhodium_Libre } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
 import { AiFillGithub } from "react-icons/ai";
-import { BiLogoLinkedin, BiSolidBusiness } from "react-icons/bi";
-import { ImMail4, ImSpinner9 } from "react-icons/im";
+import { BiLogoLinkedin, BiSolidBusiness, BiMenu, BiX } from "react-icons/bi";
+import { ImSpinner9 } from "react-icons/im";
 
 const rhodium = Rhodium_Libre({
   subsets: ["latin"],
@@ -76,6 +76,11 @@ export default function Home() {
     avatar_url: "",
   });
   const [loading, setLoading] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
 
   useEffect(() => {
     async function loadProfile() {
@@ -94,7 +99,7 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="h-screen w-screen bg-[#000413] text-white flex items-center justify-center">
+      <div className="h-screen w-screen  text-white flex items-center justify-center">
         <ImSpinner9
           className={"w-8 h-8 mr-2 text-gray-200 animate-spin fill-white"}
         />
@@ -103,33 +108,52 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-[#000413] w-screen h-screen p-10 text-white flex justify-center">
-      <div className="max-w-screen-2xl w-full h-full">
-        <nav className={`${rhodium.className} flex justify-between`}>
-          <h1 className={`text-3xl hover:underline cursor-pointer`}>
+    <div className="w-full h-full text-white flex justify-center items-center">
+      <div className="w-full h-full">
+        <nav
+          className={`${rhodium.className} h-16 flex items-center justify-around bg-[#14204d]/30`}
+        >
+          <h1 className={`text-xl hover:underline cursor-pointer`}>
             <Link href={"/"}>{user?.name.toLowerCase()}</Link>
           </h1>
-          <ul className="flex flex-row gap-6 text-xl">
-            {menu.map((menuItem) => {
-              return (
-                <li
-                  key={menuItem.id}
-                  className="transition ease-in-out delay-150 hover:scale-110 hover:duration-300 hover:text-blue-400"
-                >
-                  <Link href={menuItem.href}>{menuItem.label}</Link>
-                </li>
-              );
-            })}
-          </ul>
+          <div
+            className={` ${
+              isMenuOpen
+                ? "w-36 flex flex-col absolute right-6 top-20 bg-blue-900 p-6 items-center rounded-md"
+                : "hidden lg:block"
+            } `}
+          >
+            <ul className={`flex flex-col gap-6 lg:flex-row`}>
+              {menu.map((menuItem) => {
+                return (
+                  <li
+                    key={menuItem.id}
+                    className="transition ease-in-out delay-150 hover:scale-110 hover:duration-300 hover:text-blue-400"
+                  >
+                    <Link href={menuItem.href}>{menuItem.label}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <button onClick={toggleMenu} className={`text-3xl lg:hidden`}>
+            {isMenuOpen ? (
+              <BiX className={`bg-blue-900 rounded-full`} />
+            ) : (
+              <BiMenu />
+            )}
+          </button>
         </nav>
-        <div className="flex items-center justify-center h-full">
-          <div className="flex gap-12 p-4">
+        <div className="flex pt-8 items-center justify-center h-[calc(100vh-4rem)]">
+          <div className="flex flex-col gap-6 items-center p-4 lg:flex-row">
             <Image
-              className={`rounded-full mb-8 border-4 border-[#152544]`}
+              className={`rounded-full border-4 border-[#152544]`}
               src={user?.avatar_url}
               alt="My profile photo"
               width={300}
               height={300}
+              placeholder="blur"
+              blurDataURL="/assets/img/profile.png"
             />
             <div className="">
               <p className="font-bold text-2xl p-2">
