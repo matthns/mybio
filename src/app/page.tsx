@@ -119,11 +119,13 @@ export default function Home() {
           <div
             className={` ${
               isMenuOpen
-                ? "w-36 flex flex-col absolute right-6 top-20 bg-blue-900 p-6 items-center rounded-md"
+                ? "w-full h-full absolute top-0 flex flex-col  bg-blue-900 p-6 items-center justify-center"
                 : "hidden lg:block"
             } `}
           >
-            <ul className={`flex flex-col gap-6 lg:flex-row`}>
+            <ul
+              className={`flex flex-col gap-6 p-6 items-center justify-center lg:flex-row`}
+            >
               {menu.map((menuItem) => {
                 return (
                   <li
@@ -136,12 +138,11 @@ export default function Home() {
               })}
             </ul>
           </div>
-          <button onClick={toggleMenu} className={`text-3xl lg:hidden`}>
-            {isMenuOpen ? (
-              <BiX className={`bg-blue-900 rounded-full`} />
-            ) : (
-              <BiMenu />
-            )}
+          <button
+            onClick={toggleMenu}
+            className={`text-3xl relative text-right p-1 bg-blue-950 rounded-full lg:hidden`}
+          >
+            {isMenuOpen ? <BiX /> : <BiMenu />}
           </button>
         </nav>
         <div className="flex pt-8 items-center justify-center h-[calc(100vh-4rem)]">
