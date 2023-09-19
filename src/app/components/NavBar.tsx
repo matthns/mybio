@@ -51,7 +51,7 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`${rhodium.className} h-16 flex items-center justify-around bg-[#14204d]/30`}
+      className={`${rhodium.className} h-16 flex items-center justify-around bg-[#14204d]/30 fixed w-screen`}
     >
       <h1 className={`text-xl hover:underline cursor-pointer`}>
         <Link href={"/"}>{user?.name.toLowerCase()}</Link>
@@ -59,7 +59,7 @@ export default function NavBar() {
       <div
         className={` ${
           isMenuOpen
-            ? "w-full h-full absolute top-0 flex flex-col bg-slate-900 p-6 items-center justify-center"
+            ? "w-screen h-screen absolute top-0 flex flex-col bg-slate-900 p-6 items-center justify-center"
             : "hidden lg:block"
         } `}
       >
