@@ -93,8 +93,7 @@ export default function Home() {
     <div className="w-full h-full text-white flex justify-center items-center">
       <div className="w-full h-full">
         <NavBar />
-
-        <div className="flex pt-8 items-center justify-center h-[calc(100vh-4rem)]">
+        <div className="flex items-center justify-center mt-[4rem] h-[calc(100vh-4rem)]">
           <div className="flex flex-col gap-6 items-center p-4 lg:flex-row">
             <Image
               className={`rounded-full border-4 border-[#152544]`}
