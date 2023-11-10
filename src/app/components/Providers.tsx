@@ -6,8 +6,8 @@ import { LoadingProvider } from "./LoadingContext";
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
-    <LoadingProvider>
-      <UserProvider>{children}</UserProvider>
-    </LoadingProvider>
+    // <LoadingProvider>
+    <UserProvider>{children}</UserProvider>
+    // </LoadingProvider>
   );
 }

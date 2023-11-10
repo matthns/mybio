@@ -1,11 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Red_Hat_Display, Barlow } from "next/font/google";
 import Providers from "./components/Providers";
 
-const roboto = Roboto({
+const barlow = Barlow({
   subsets: ["latin"],
-  weight: ["300", "500", "700"],
+  weight: ["300", "400", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -20,9 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${roboto.className} font-light bg-[#000413] text-white`}
-      >
+      <body className={`${barlow.className} bg-[#000413] text-white`}>
         <Providers>{children}</Providers>
       </body>
     </html>
