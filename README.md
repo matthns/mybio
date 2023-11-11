@@ -35,8 +35,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Knowed bugs
 
-- Pages of menu
-- Responsivity
-- Some pages are missing
-- Refactor and separate some components (e.g: navbar, etc.)
-- Tailwind Animation (needs to be implemented)
+No one
