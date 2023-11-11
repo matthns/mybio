@@ -16,9 +16,9 @@ export const LoadingProvider = ({ children }: { children: ReactNode }) => {
   return (
     <LoadingContext.Provider value={{ loading, setLoading: _setLoading }}>
       {loading && (
-        <div className="h-screen w-screen text-white flex items-center justify-center bg-slate-950 absolute inset-0 z-50">
+        <div className="h-full w-full text-white flex items-center justify-center bg-heavy-blue absolute top-0 left-0 inset-0 z-50">
           <ImSpinner2
-            className={"w-8 h-8 mr-2 text-gray-200 animate-spin fill-white"}
+            className={"w-8 h-8 text-gray-200 animate-spin fill-white"}
           />
         </div>
       )}

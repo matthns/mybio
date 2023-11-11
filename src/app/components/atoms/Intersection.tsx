@@ -1,24 +1,19 @@
 "use client";
 import { ReactNode, FC } from "react";
-import { useInView } from "react-intersection-observer";
+import { useInView, InView } from "react-intersection-observer";
 
 interface SectionProps {
-  id: string;
   children: ReactNode | ReactNode[];
-  className?: string;
 }
 
-const Section: FC<SectionProps> = ({ children, className, id }) => {
+const Intersection: FC<SectionProps> = ({ children }) => {
   const { ref, inView, entry } = useInView({
+    /* Optional options */
     threshold: 0,
   });
 
   return (
-    <section
-      className={`w-full h-full pt-24 px-8 ${className}`}
-      // inView={inView}
-      id={id}
-    >
+    <div>
       <div
         ref={ref}
         className={`${
@@ -29,8 +24,8 @@ const Section: FC<SectionProps> = ({ children, className, id }) => {
       >
         {children}
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Section;
+export default Intersection;

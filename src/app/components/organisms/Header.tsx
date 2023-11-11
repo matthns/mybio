@@ -1,6 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
 import { useUser } from "../UserContext";
 import Logo from "../atoms/Logo";
@@ -8,16 +7,26 @@ import MenuItem from "../atoms/MenuItem";
 
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [positionY, setPositonY] = useState<number>(0);
 
-  const toggleMenu = () => {
+  useEffect(() => {
+    window.addEventListener("scroll", (event) => {
+      setPositonY(scrollY);
+    });
+
+    window.onbeforeunload = () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
+  function toggleMenu() {
     setMenuOpen(!isMenuOpen);
-  };
+  }
 
   const { user } = useUser();
 
   return (
-    <header className="w-full h-18 lg:h-28 lg:fixed lg:top-0 lg:left-0 bg-heavy-blue fixed">
-      {/* absolute */}
+    <header className="w-full h-18 lg:h-28 lg:fixed lg:top-0 lg:left-0 bg-heavy-blue fixed z-50">
       <div className="max-w-screen-xl ml-auto mr-auto flex justify-between py-4 px-6 h-full">
         <Logo />
         <nav
@@ -27,11 +36,16 @@ export default function Header() {
               : "hidden lg:flex lg:flex-row lg:justify-end lg:gap-3"
           }`}
         >
-          <MenuItem href={"/"}>home</MenuItem>
-          <MenuItem href={"#projects"}>projects</MenuItem>
+          <MenuItem href={"/"} onClick={() => setMenuOpen(false)}>
+            home
+          </MenuItem>
+          <MenuItem href={"#projects"} onClick={() => setMenuOpen(false)}>
+            projects
+          </MenuItem>
           <MenuItem
             className="text-lg bg-gradient-to-r from-[#1A4EFF] to-[#587EFF] hover:bg-none hover:border-[1px] hover:border-[#587EFF]"
             href={"#contact"}
+            onClick={() => setMenuOpen(false)}
           >
             contact me
           </MenuItem>
