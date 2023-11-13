@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { BiMenu, BiX } from "react-icons/bi";
-import { useUser } from "../UserContext";
+import { useUser } from "../context/UserContext";
 import Logo from "../atoms/Logo";
 import MenuItem from "../atoms/MenuItem";
 
@@ -38,6 +38,9 @@ export default function Header() {
         >
           <MenuItem href={"/"} onClick={() => setMenuOpen(false)}>
             home
+          </MenuItem>
+          <MenuItem href={"#about"} onClick={() => setMenuOpen(false)}>
+            about
           </MenuItem>
           <MenuItem href={"#projects"} onClick={() => setMenuOpen(false)}>
             projects

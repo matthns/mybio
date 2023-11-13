@@ -25,7 +25,7 @@ export const Welcome = () => {
       >
         <div className="flex flex-col gap-4 drop-shadow-lg md:gap-6 lg:w-4/5">
           <div>
-            <h1 className="font-bold text-5xl md:text-6xl lg:leading-tight">
+            <h1 className="font-extrabold text-5xl md:text-6xl lg:leading-tight">
               Hi, my name is{" "}
               <strong className="text-[#5C82FF]">Matheus Nascimento</strong> and
               I’m Frontend Developer.
