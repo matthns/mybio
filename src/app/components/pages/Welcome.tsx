@@ -22,12 +22,7 @@ export const Welcome = () => {
               >
                 See more
               </Link>
-              <Link
-                href={""}
-                className="w-fit py-1 px-2 text-xl italic underline underline-offset-4 hover:text-[#5c82ff] md:text-2xl"
-              >
-                My resume
-              </Link>
+
               <div className="my-12 flex gap-6 text-4xl md:text-5xl md:bottom-16">
                 <Link
                   href={"https://www.linkedin.com/in/matthns/"}
