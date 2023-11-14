@@ -20,7 +20,7 @@ export const MainLayout: FC<MainLayoutProps> = ({
 
   return (
     <main
-      className={`w-full h-[100svh] flex flex-col items-center px-8  ${className}`}
+      className={`w-full h-[100svh] flex flex-col items-center px-8 pt-18 lg:pt-28 ${className}`}
       id={id}
     >
       <aside className="flex-1 w-full"></aside>
