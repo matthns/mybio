@@ -27,13 +27,13 @@ export default function Header() {
   const { user } = useUser();
 
   return (
-    <header className="w-full h-20 lg:h-28 lg:fixed lg:top-0 lg:left-0 bg-heavy-blue fixed z-40">
+    <header className="w-full h-20 bg-heavy-blue fixed z-40 lg:h-28 lg:top-0 lg:left-0 ">
       <div className="max-w-screen-xl ml-auto mr-auto flex justify-between py-4 px-6 h-full">
         <Logo />
         <nav
           className={`flex flex-row gap-6 items-center w-1/2 ${
             isMenuOpen
-              ? "absolute flex flex-col w-full h-[100svh] bg-dark-blue top-0 left-0 z-40 items-center justify-center"
+              ? "absolute z-50 flex flex-col w-full h-[100vh] bg-dark-blue top-0 left-0 items-center justify-center"
               : "hidden lg:flex lg:flex-row lg:justify-end lg:gap-3"
           }`}
         >

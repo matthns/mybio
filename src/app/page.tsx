@@ -4,10 +4,8 @@ import { useUser } from "./components/context/UserContext";
 import { useLoading } from "./components/context/LoadingContext";
 import Header from "./components/organisms/Header";
 import { Welcome } from "./components/pages/Welcome";
-
 import { About } from "./components/pages/About";
 import { Projects } from "./components/pages/Projects";
-import { ParticlesBg } from "./components/particles/Particles";
 import { Contact } from "./components/pages/Contact";
 import { Footer } from "./components/organisms/Footer";
 
@@ -26,7 +24,6 @@ export default function Home() {
 
   return (
     <main>
-      {/* w-screen h-[100svh] max-w-screen-xl ml-auto mr-auto */}
       <Header />
       <Welcome />
       <About />

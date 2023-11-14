@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { FaReact } from "react-icons/fa";
+import { FaGitAlt, FaJava, FaReact } from "react-icons/fa";
 import {
   SiFigma,
   SiNextdotjs,
@@ -9,7 +9,8 @@ import {
   SiCss3,
 } from "react-icons/si";
 import { RiJavascriptFill } from "react-icons/ri";
-import { BiLogoGithub, BiLogoTypescript } from "react-icons/bi";
+import { BiLogoTypescript } from "react-icons/bi";
+import { FaDatabase } from "react-icons/fa";
 
 type TechSkillsProps = {
   icon: ReactNode;
@@ -55,7 +56,15 @@ export const TechSkills: TechSkillsProps[] = [
     icon: <SiFigma />,
   },
   {
-    label: "Github",
-    icon: <BiLogoGithub />,
+    label: "Git",
+    icon: <FaGitAlt />,
+  },
+  {
+    label: "Java",
+    icon: <FaJava />,
+  },
+  {
+    label: "SQL/Databases",
+    icon: <FaDatabase />,
   },
 ];

@@ -1,11 +1,11 @@
 import { Title } from "../atoms/Title";
 import { Text } from "../atoms/Text";
-import { TechSkills } from "../content/TechList";
+import { TechSkills } from "../content/SkillsList";
 import { MainLayout } from "../templates/MainLayout";
 
 export const About = () => {
   return (
-    <MainLayout className="" id="about">
+    <MainLayout className="bg-dark-blue" id="about">
       <div className="flex flex-col pt-18">
         <Title className="text-center">About me</Title>
         <Text className="mt-4 text-center">
