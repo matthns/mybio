@@ -1,6 +1,5 @@
 import { FC, HTMLProps, ReactNode } from "react";
 
-import { ParticlesBg } from "../particles/Particles";
 import { useInView, InView } from "react-intersection-observer";
 
 interface MainLayoutProps {
@@ -21,10 +20,10 @@ export const MainLayout: FC<MainLayoutProps> = ({
 
   return (
     <main
-      className={`w-full h-[100svh] flex flex-col items-center px-8 py-24 md:py-28 xl:py-48 ${className}`}
+      className={`w-full h-[100svh] flex flex-col items-center px-8  ${className}`}
       id={id}
     >
-      <aside className="flex-1"></aside>
+      <aside className="flex-1 w-full"></aside>
       <div
         ref={ref}
         className={`w-full max-w-screen-xl flex-2 ${
@@ -35,7 +34,7 @@ export const MainLayout: FC<MainLayoutProps> = ({
       >
         {children}
       </div>
-      <aside className="flex-1"></aside>
+      <aside className="flex-1 w-full"></aside>
     </main>
   );
 };

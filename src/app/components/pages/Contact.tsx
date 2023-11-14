@@ -5,7 +5,7 @@ import { MainLayout } from "../templates/MainLayout";
 
 export const Contact = () => {
   return (
-    <MainLayout className="bg-dark-blue h-full" id="contact">
+    <MainLayout className="bg-dark-blue" id="contact">
       <Title className="text-center">Contact me</Title>
       <div className="mt-12 flex flex-col items-center justify-center gap-10 lg:mt-24 lg:gap-20 lg:flex-row">
         {ContactList.map((item, index) => {

@@ -8,7 +8,7 @@ import { Text } from "../atoms/Text";
 
 export const Projects = () => {
   return (
-    <MainLayout className="h-full bg-heavy-blue text-center" id="projects">
+    <MainLayout className="bg-heavy-blue text-center" id="projects">
       <Title>Projects</Title>
       <Text className="mt-4">
         Here are the projects I was proud to participate in at some or all

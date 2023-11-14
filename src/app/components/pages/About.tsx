@@ -5,8 +5,8 @@ import { MainLayout } from "../templates/MainLayout";
 
 export const About = () => {
   return (
-    <MainLayout className="bg-dark-blue h-fit" id="about">
-      <div className="flex flex-col">
+    <MainLayout className="bg-dark-blue" id="about">
+      <div className="flex flex-col pt-18">
         <Title className="text-center">About me</Title>
         <Text className="mt-4 text-center">
           Actually I have a degree in Systems Analysis and Development by

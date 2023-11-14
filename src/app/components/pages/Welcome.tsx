@@ -7,9 +7,9 @@ export const Welcome = () => {
   return (
     <main className="w-full h-[100svh]">
       <ParticlesBg />
-      <MainLayout className="h-full">
+      <MainLayout className="">
         <div className="h-full flex flex-col items-center justify-center gap-4 md:gap-6 lg:w-4/5">
-          <div className="mt-24 md:mt-0">
+          <div className="">
             <h1 className="font-extrabold text-5xl drop-shadow-xl md:text-6xl lg:leading-tight">
               Hi, my name is{" "}
               <strong className="text-light-blue">Matheus Nascimento</strong>{" "}
