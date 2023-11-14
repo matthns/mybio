@@ -27,7 +27,7 @@ export default function Header() {
   const { user } = useUser();
 
   return (
-    <header className="w-full h-18 lg:h-28 lg:fixed lg:top-0 lg:left-0 bg-heavy-blue fixed z-40">
+    <header className="w-full h-20 lg:h-28 lg:fixed lg:top-0 lg:left-0 bg-heavy-blue fixed z-40">
       <div className="max-w-screen-xl ml-auto mr-auto flex justify-between py-4 px-6 h-full">
         <Logo />
         <nav

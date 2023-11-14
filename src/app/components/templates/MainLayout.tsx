@@ -20,10 +20,10 @@ export const MainLayout: FC<MainLayoutProps> = ({
 
   return (
     <main
-      className={`w-full h-[100svh] flex flex-col items-center px-8 pt-18 lg:pt-28 ${className}`}
+      className={`w-full min-h-[100svh] flex flex-col items-center px-8 pt-20 lg:pt-28 ${className}`}
       id={id}
     >
-      <aside className="flex-1 w-full"></aside>
+      <aside className="flex-1 w-full min-h-[1px] bg-yellow-200"></aside>
       <div
         ref={ref}
         className={`w-full max-w-screen-xl flex-2 ${
@@ -34,7 +34,7 @@ export const MainLayout: FC<MainLayoutProps> = ({
       >
         {children}
       </div>
-      <aside className="flex-1 w-full"></aside>
+      <aside className="flex-1 w-full min-h-[1px] bg-red-200"></aside>
     </main>
   );
 };

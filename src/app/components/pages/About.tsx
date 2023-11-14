@@ -5,16 +5,15 @@ import { MainLayout } from "../templates/MainLayout";
 
 export const About = () => {
   return (
-    <MainLayout className="bg-dark-blue" id="about">
+    <MainLayout className="" id="about">
       <div className="flex flex-col pt-18">
         <Title className="text-center">About me</Title>
         <Text className="mt-4 text-center">
           Actually I have a degree in Systems Analysis and Development by
-          Faculdade Unicesumar, I have eight years of experience in the
-          technical support area. As a software developer I am improving my
-          techniques in Next.js, React.js, Design (corporate websites, corporate
-          applications). In my professional career I seek a purpose of learning,
-          new challenges and also multiplying the knowledge.
+          Unicesumar, I have eight years of experience in the technical support
+          area. As a software developer I am improving my techniques in Next.js,
+          React.js, Design. In my professional career I always seek new
+          challenges.
         </Text>
         <div className="mt-10 w-full">
           <Title className="text-center">My skills</Title>
