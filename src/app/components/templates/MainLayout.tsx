@@ -21,12 +21,13 @@ export const MainLayout: FC<MainLayoutProps> = ({
 
   return (
     <main
-      className={`w-full h-[100svh] flex px-8 py-24 md:py-28 xl:py-48 ${className}`}
+      className={`w-full h-[100svh] flex flex-col items-center px-8 py-24 md:py-28 xl:py-48 ${className}`}
       id={id}
     >
+      <aside className="flex-1"></aside>
       <div
         ref={ref}
-        className={`w-full max-w-screen-xl ml-auto mr-auto ${
+        className={`w-full max-w-screen-xl flex-2 ${
           inView
             ? " animate-fade-right animate-delay-[100ms] animate-ease-in-out animate-normal"
             : ""
@@ -34,6 +35,7 @@ export const MainLayout: FC<MainLayoutProps> = ({
       >
         {children}
       </div>
+      <aside className="flex-1"></aside>
     </main>
   );
 };
