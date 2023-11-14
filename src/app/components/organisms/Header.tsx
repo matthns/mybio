@@ -4,6 +4,7 @@ import { BiMenu, BiX } from "react-icons/bi";
 import { useUser } from "../context/UserContext";
 import Logo from "../atoms/Logo";
 import MenuItem from "../atoms/MenuItem";
+import { MenuList } from "../content/MenuOptList";
 
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -26,7 +27,7 @@ export default function Header() {
   const { user } = useUser();
 
   return (
-    <header className="w-full h-18 lg:h-28 lg:fixed lg:top-0 lg:left-0 bg-heavy-blue fixed z-50">
+    <header className="w-full h-18 lg:h-28 lg:fixed lg:top-0 lg:left-0 bg-heavy-blue fixed z-40">
       <div className="max-w-screen-xl ml-auto mr-auto flex justify-between py-4 px-6 h-full">
         <Logo />
         <nav
@@ -36,22 +37,18 @@ export default function Header() {
               : "hidden lg:flex lg:flex-row lg:justify-end lg:gap-3"
           }`}
         >
-          <MenuItem href={"/"} onClick={() => setMenuOpen(false)}>
-            home
-          </MenuItem>
-          <MenuItem href={"#about"} onClick={() => setMenuOpen(false)}>
-            about
-          </MenuItem>
-          <MenuItem href={"#projects"} onClick={() => setMenuOpen(false)}>
-            projects
-          </MenuItem>
-          <MenuItem
-            className="text-lg bg-gradient-to-r from-[#1A4EFF] to-[#587EFF] hover:bg-none hover:border-[1px] hover:border-[#587EFF]"
-            href={"#contact"}
-            onClick={() => setMenuOpen(false)}
-          >
-            contact me
-          </MenuItem>
+          {MenuList.map((option, index) => {
+            return (
+              <MenuItem
+                key={index}
+                href={option.href}
+                className={option.style}
+                onclick={() => setMenuOpen(false)}
+              >
+                {option.label}
+              </MenuItem>
+            );
+          })}
         </nav>
         <button
           className={`text-4xl hover:text-light-blue z-50 lg:hidden`}

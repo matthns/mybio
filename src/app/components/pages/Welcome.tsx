@@ -1,34 +1,19 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { MainLayout } from "../templates/MainLayout";
 import { ParticlesBg } from "../particles/Particles";
-import { useInView } from "react-intersection-observer";
 
 export const Welcome = () => {
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0,
-  });
-
   return (
-    <main
-      className="w-full h-full pt-24 px-8 flex flex-col justify-center md:px-12"
-      id={"/"}
-    >
+    <main className="w-full h-[100svh]">
       <ParticlesBg />
-      <div
-        ref={ref}
-        className={`${
-          inView
-            ? "animate-fade-right animate-delay-[100ms] animate-ease-in-out animate-normal"
-            : ""
-        }`}
-      >
-        <div className="flex flex-col gap-4 drop-shadow-lg md:gap-6 lg:w-4/5">
-          <div>
-            <h1 className="font-extrabold text-5xl md:text-6xl lg:leading-tight">
+      <MainLayout className="h-full">
+        <div className="h-full flex flex-col items-center justify-center gap-4 md:gap-6 lg:w-4/5">
+          <div className="mt-24 md:mt-0">
+            <h1 className="font-extrabold text-5xl drop-shadow-xl md:text-6xl lg:leading-tight">
               Hi, my name is{" "}
-              <strong className="text-[#5C82FF]">Matheus Nascimento</strong> and
-              I’m Frontend Developer.
+              <strong className="text-light-blue">Matheus Nascimento</strong>{" "}
+              and I’m Frontend Developer.
             </h1>
             <div className="my-8">
               <Link
@@ -62,7 +47,7 @@ export const Welcome = () => {
             </div>
           </div>
         </div>
-      </div>
+      </MainLayout>
     </main>
   );
 };

@@ -22,6 +22,7 @@ export const ParticlesBg = () => {
       url="/assets/particles.json"
       init={particlesInit}
       loaded={particlesLoaded}
+      className=""
     />
   );
 };

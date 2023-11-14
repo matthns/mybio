@@ -7,6 +7,9 @@ import { Welcome } from "./components/pages/Welcome";
 
 import { About } from "./components/pages/About";
 import { Projects } from "./components/pages/Projects";
+import { ParticlesBg } from "./components/particles/Particles";
+import { Contact } from "./components/pages/Contact";
+import { Footer } from "./components/organisms/Footer";
 
 export default function Home() {
   const { user } = useUser();
@@ -22,11 +25,14 @@ export default function Home() {
   }, [user]); //eslint-disable-line
 
   return (
-    <main className="w-screen h-[100svh] max-w-screen-xl ml-auto mr-auto">
+    <main>
+      {/* w-screen h-[100svh] max-w-screen-xl ml-auto mr-auto */}
       <Header />
       <Welcome />
       <About />
       <Projects />
+      <Contact />
+      <Footer />
     </main>
   );
 }

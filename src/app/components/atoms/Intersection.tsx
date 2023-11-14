@@ -13,10 +13,10 @@ const Intersection: FC<SectionProps> = ({ children }) => {
   });
 
   return (
-    <div>
+    <div className="h-full w-full">
       <div
         ref={ref}
-        className={`${
+        className={`w-full h-full${
           inView
             ? "animate-fade-right animate-delay-[100ms] animate-ease-in-out animate-normal"
             : ""

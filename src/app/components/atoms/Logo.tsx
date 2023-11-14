@@ -1,18 +1,25 @@
 import Image from "next/image";
-import { FC } from "react";
+import { FC, HTMLProps } from "react";
 
-const Logo: FC = ({}) => {
+type LogoProps = {
+  textSize?: HTMLProps<HTMLElement>["className"];
+  imgSize?: HTMLProps<HTMLElement>["className"];
+};
+
+const Logo: FC<LogoProps> = ({ textSize, imgSize }) => {
   return (
-    <h1 className={`flex flex-row items-center gap-2 cursor-pointer`}>
+    <div className={`flex flex-row items-center gap-2 cursor-pointer `}>
       <Image
         src={"/assets/icons/code_icon.svg"}
         width={60}
         height={60}
         alt="Code icon"
-        className="w-[2.5rem] lg:w-[3.5rem]"
+        className={`w-[2.5rem] lg:w-[3.5rem] ${imgSize}`}
       />
-      <p className="font-light text-2xl lg:text-2xl">matheus nascimento</p>
-    </h1>
+      <h1 className={`font-extralight text-2xl lg:text-2xl ${textSize}`}>
+        matheus nascimento
+      </h1>
+    </div>
   );
 };
 

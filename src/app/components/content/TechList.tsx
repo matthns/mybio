@@ -25,14 +25,7 @@ export const TechSkills: TechSkillsProps[] = [
     label: "CSS3",
     icon: <SiCss3 />,
   },
-  {
-    label: "React.js",
-    icon: <FaReact />,
-  },
-  {
-    label: "Next.js",
-    icon: <SiNextdotjs />,
-  },
+
   {
     label: "Javacript",
     icon: <RiJavascriptFill />,
@@ -48,6 +41,14 @@ export const TechSkills: TechSkillsProps[] = [
   {
     label: "Styled-components",
     icon: <SiStyledcomponents />,
+  },
+  {
+    label: "React.js",
+    icon: <FaReact />,
+  },
+  {
+    label: "Next.js",
+    icon: <SiNextdotjs />,
   },
   {
     label: "Figma",
