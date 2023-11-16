@@ -23,7 +23,7 @@ export default function Home() {
   }, [user]); //eslint-disable-line
 
   return (
-    <main>
+    <main className="relative">
       <Header />
       <Welcome />
       <About />
