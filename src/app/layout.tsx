@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Red_Hat_Display, Barlow, Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
 import Providers from "./components/Providers";
 
 const manrope = Manrope({
