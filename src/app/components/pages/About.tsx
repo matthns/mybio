@@ -9,7 +9,7 @@ export const About = () => {
       <div className="flex flex-col pt-18">
         <Title className="text-center">About me</Title>
         <Text className="mt-4 text-center">
-          Actually I have a degree in Systems Analysis and Development by
+          Currently I have a degree in Systems Analysis and Development by
           Unicesumar, I have eight years of experience in the technical support
           area. As a software developer I am improving my techniques in Next.js,
           React.js, Design. In my professional career I always seek new
